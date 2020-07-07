@@ -3,33 +3,9 @@
 {% block title %} Clicks {% endblock %}
 
 {% block content %}
-
-
-
-
-
-    <div class="form-wrap my-5 p-5 mx-auto bg-light">
-        <form class="form-inline justify-content-md-center">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Short URL:</div>
-                </div>
-                <input class="form-control form-control-lg" type="text" value="{{surl}}" id="myInput">
-                <div class="input-group-append">
-                    <button id="myBtn" type="button" class="btn btn-lg btn-primary" onclick="myFunction()">Copy</button>
-                </div>
-            </div>
-        </form>
-        <div class="text-center my-5">
-            <p>Your URL has been shortened</p>
-            <a href="{{ furl }}">{{ furl }}</a>
-            <h2>↓</h2>
-            <a href="{{surl}}">{{surl}}</a>
-        </div>
+    <div class="text-center my-5">
+        <h1>Total clicks: {{ clicks }}</h1>
+        <h3>SHORT: {{ surl }}</h3>
+        <h3>FULL: {{ furl }}</h3>
     </div>
-
-
-
-
-    
 {% endblock %}

@@ -3,30 +3,26 @@
 {% block title %} URL Shortener {% endblock %}
 
 {% block content %}
-    <div class="form-wrap my-5 p-5 mx-auto bg-light">
-        <form class="form-inline justify-content-md-center" method="post">
-            {{ form.hidden_tag() }}
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">{{ form.url_string.label }}</div>
-                </div>
-
-                {{ form.url_string(size=32, class="form-control form-control-lg") }}
-
-                <div class="input-group-append">
-                    {{ form.submit(class="btn btn-primary btn-lg") }}
-                </div>
+    <form class="form-inline justify-content-md-center" method="post">
+        {{ form.hidden_tag() }}
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">{{ form.url_string.label }}</div>
             </div>
-        </form>
-        <div class="text-center my-4">
-            {% for error in form.url_string.errors %}
-                <p class="text-danger">{{ error }}</p>
-            {% endfor %}
-        </div>
-        <div class="mx-auto my-5 px-5 text-center">
-            <h4 class="mb-5">Here you can shorten the URL</h4>
 
-            <h4>You can see the number of clicks on your URL <a href="{{ url_for('clicks', short_url='') }}">here...</a></h4>
+            {{ form.url_string(size=32, class="form-control form-control-lg") }}
+
+            <div class="input-group-append">
+                {{ form.submit(class="btn btn-primary btn-lg") }}
+            </div>
         </div>
+    </form>
+    <div class="text-center my-4">
+        {% for error in form.url_string.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+    <div class="mx-auto my-5 px-5 text-center">
+        <h4 class="mb-5">Here you can shorten the URL</h4>
     </div>
 {% endblock %}

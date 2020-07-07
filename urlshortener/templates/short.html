@@ -3,24 +3,23 @@
 {% block title %} Your URL {% endblock %}
 
 {% block content %}
-    <div class="form-wrap my-5 p-5 mx-auto bg-light">
-        <form class="form-inline justify-content-md-center">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Short URL:</div>
-                </div>
-                <input class="form-control form-control-lg" type="text" value="{{surl}}" id="myInput">
-                <div class="input-group-append">
-                    <button id="myBtn" type="button" class="btn btn-lg btn-primary" onclick="myFunction()">Copy</button>
-                </div>
+    <form class="form-inline justify-content-md-center">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Short URL:</div>
             </div>
-        </form>
-        <div class="text-center my-5">
-            <p>Your URL has been shortened</p>
-            <a href="{{ furl }}">{{ furl }}</a>
-            <h2>↓</h2>
-            <a href="{{surl}}">{{surl}}</a>
-            <p> You can see the number of clicks on your URL <a href="{{ url_for('clicks', short_url=short_url) }}"> here ...</a></p>
+            <input class="form-control form-control-lg" type="text" value="{{surl}}" id="myInput">
+            <div class="input-group-append">
+                <button id="myBtn" type="button" class="btn btn-lg btn-primary" onclick="myFunction()">Copy</button>
+            </div>
         </div>
+    </form>
+    <div class="text-center my-5">
+        <h4>Your URL has been shortened</h4>
+        <h4><a href="{{ furl }}">{{ furl }}</a></h4>
+        <h2>↓</h2>
+        <h4><a href="{{surl}}">{{surl}}</a></h4>
+
+        <h4> You can see the count of clicks on your URL <a href="{{ url_for('clicks', short_url=short_url) }}"> here>>></a></h4>
     </div>
 {% endblock %}
