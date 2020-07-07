@@ -26,7 +26,6 @@ def get_urls(short_url):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    print(request.host_url)
     form = URLForm()
     if form.validate_on_submit():
         url = db.session.query(ShortURL).filter_by(full_url=form.url_string.data).first()

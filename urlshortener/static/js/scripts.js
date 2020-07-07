@@ -1,6 +1,5 @@
 function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
+  document.getElementById("myInput").select();;
   document.execCommand("copy");
   var div = document.getElementById("myBtn");
   div.classList.remove(div.classList[2])
