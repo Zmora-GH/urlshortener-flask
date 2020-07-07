@@ -11,8 +11,7 @@
 <body>
     <nav class="navbar navbar-light bg-light justify-content-md-center">
         <a class="navbar-brand" href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='img/logo.png')}}" width="400" height="100" alt="" loading="lazy">
-        </a>
+            <span class="logo">URL Shortener</span></a>
     </nav>
     <div class="container">
         {% block content %}
@@ -20,7 +19,9 @@
     </div>
     <footer>
         <div class="container text-center mt-5">
-            <p>Cover template for Bootstrap, by @mdo.</p>
+            <p>Created with: <a href="https://palletsprojects.com/p/flask/">flask</a>,
+                <a href="https://getbootstrap.com/">bootstrap</a></p>
+            <p>by Zmora</p>
         </div>
     </footer>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>

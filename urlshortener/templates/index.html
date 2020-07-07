@@ -1,9 +1,9 @@
 {% extends 'base.html'  %}
 
-{% block title %} fdsfasdfsdf {% endblock %}
+{% block title %} URL Shortener {% endblock %}
 
 {% block content %}
-    <div class="form-wrap my-5 p-5 mx-auto ">
+    <div class="form-wrap my-5 p-5 mx-auto bg-light">
         <form class="form-inline justify-content-md-center" method="post">
             {{ form.hidden_tag() }}
             <div class="input-group mb-2">
@@ -18,17 +18,15 @@
                 </div>
             </div>
         </form>
-        <div class="text-center mt-2">
+        <div class="text-center my-4">
             {% for error in form.url_string.errors %}
                 <p class="text-danger">{{ error }}</p>
             {% endfor %}
         </div>
-    </div>
-    <div class="card border-light my-4 mx-auto" style="max-width: 21rem;">
-        <div class="card-header">Descriptions</div>
-        <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="mx-auto my-5 px-5 text-center">
+            <h4 class="mb-5">Here you can shorten the URL</h4>
+
+            <h4>You can see the number of clicks on your URL <a href="{{ url_for('clicks', short_url='') }}">here...</a></h4>
         </div>
     </div>
 {% endblock %}

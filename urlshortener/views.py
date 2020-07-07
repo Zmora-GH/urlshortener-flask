@@ -15,6 +15,7 @@ def random_url(N=7):
         return random_url
     return slug
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = URLForm()
@@ -30,12 +31,20 @@ def index():
     return render_template('index.html', form=form)
 
 
+@app.route('/<short_url>/clicks')
+def clicks(short_url):
+    #short_url == '' if >>> index else == valid short_url
+    if short_url:
+        pass
+    pass
+
+
 @app.route('/short/<short_url>')
 def short_page(short_url):
     url = db.session.query(ShortURL).filter_by(short_url=short_url).first()
     surl = BASE_URL + url.short_url
     furl = url.full_url
-    return render_template('short.html', surl=surl, furl=furl)
+    return render_template('short.html', surl=surl, furl=furl, short_url=url.short_url)
 
 
 @app.route('/<short_url>')
