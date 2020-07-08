@@ -18,7 +18,7 @@ def get_urls(short_url):
     url = db.session.query(ShortURL).filter_by(short_url=short_url).first()
     if not url:
         abort(404)
-    surl = request.host_url + url.short_url
+    surl = ''.join(request.host_url.split('//',1)[1:]) + url.short_url
     furl = url.full_url
     clicks = url.clicks
     return surl, furl, clicks
